@@ -1,0 +1,89 @@
+% Relevant Packages
+\usepackage{amsmath,amsfonts}
+\usepackage{algorithmic}
+
+\usepackage{csquotes}
+\usepackage{graphicx}
+
+\usepackage[dvipsnames,table]{xcolor}
+
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\usepackage{float}
+\usepackage{xspace}
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
+
+\definecolor{PaleGreen}{RGB}{206, 237, 194}
+\definecolor{PaleRed}{RGB}{250, 207, 217}
+\definecolor{GreenPlus}{RGB}{52, 128, 23}
+\definecolor{RedMinus}{RGB}{156, 30, 59}
+
+% Listings
+\usepackage{listings}
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+
+% Python style for highlighting
+\lstset{
+    language=python,
+    % Frame and positioning
+    tabsize=4,
+    float=tp,
+    floatplacement=tbp,
+    frame=single,
+    % General style
+    basicstyle=\footnotesize\sffamily,
+    numberstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\textbf,
+    commentstyle=\color{OliveGreen},
+    stringstyle=\color{deepgreen},
+    breaklines=true,
+    % Numbers left
+    numbers=left,
+    numberstyle=\sffamily\tiny\raisebox{0.3em},
+    numbersep=5pt,
+    % Extra keywords emphasize
+    ndkeywords={nodes,topics,services,actions,parameters},
+    ndkeywordstyle=\color{blue}\bfseries,
+    emph={expects,where,const,decl},
+    emphstyle={\textbf},
+}
+
+% Command for changes in the paper
+\newcommand{\showchanges}{1} % Define the flag to 1 to see changes
+
+\newcommand{\add}[1]{%
+  \ifnum\showchanges=1
+      \begingroup
+      \setlength{\fboxsep}{1pt}
+      \colorbox{PaleGreen}{{\color{GreenPlus}\mbox{[+]}} #1}%
+      \endgroup
+  \else {#1}%
+  \fi
+}
+
+\newcommand{\rem}[1]{%
+  \ifnum\showchanges=1
+      \begingroup
+      \setlength{\fboxsep}{1pt}
+      \colorbox{PaleRed}{{\color{RedMinus}\mbox{[-]}} #1}%
+      \endgroup
+  \else {#1}%
+  \fi
+}
+
+% Commands for adding todos to the paper
+\newcommand{\nb}[3]{
+    {\colorbox{#2}{\bfseries\sffamily\scriptsize\textcolor{white}{#1}}}{
+        \textcolor{#2}{\sf\small\textit{#3}}
+    }\xspace
+}
+
+\newcommand{\paulo}[1]{\nb{Paulo}{OliveGreen}{#1}}
